@@ -13,7 +13,7 @@
 
 
 torchrun pytorch/language-modeling/run_clm.py \
-    --model_name_or_path ~/models/gpt2_0.1 \
+    --model_name_or_path "$(pwd)"/models/gpt2_0.1 \
     --tokenizer_name gpt2 \
     --dataset_name wikitext \
     --dataset_config_name wikitext-2-raw-v1 \
