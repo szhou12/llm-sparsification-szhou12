@@ -78,7 +78,7 @@ def run_benchmark_single(model_name, tokenizer_checkpoint, model_checkpoint, SPA
     model = AutoModelForSequenceClassification.from_pretrained(model_checkpoint, num_labels=2)
 
     training_args = TrainingArguments(
-        num_train_epochs = 1,
+        # num_train_epochs = 1,
         output_dir=f'output/glue-{model_name}_{SPARSE_PERCENT}/',
     )
 
@@ -100,16 +100,17 @@ def run_benchmark_single(model_name, tokenizer_checkpoint, model_checkpoint, SPA
 
 if __name__ == "__main__":
     model_name = sys.argv[1].strip()
-    tokenizer_checkpoint = sys.argv[2].strip()
-    model_checkpoint = sys.argv[3].strip()
-    SPARSE_PERCENT = sys.argv[4].strip()
 
-    run_benchmark_single(
-        model_name, 
-        tokenizer_checkpoint, 
-        model_checkpoint, 
-        SPARSE_PERCENT
-    )
+    # tokenizer_checkpoint = sys.argv[2].strip()
+    # model_checkpoint = sys.argv[3].strip()
+    # SPARSE_PERCENT = sys.argv[4].strip()
+
+    # run_benchmark_single(
+    #     model_name, 
+    #     tokenizer_checkpoint, 
+    #     model_checkpoint, 
+    #     SPARSE_PERCENT
+    # )
 
 
     # run_benchmark(model_name)
