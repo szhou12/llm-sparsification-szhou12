@@ -76,5 +76,5 @@ def save_pruned_models_glue():
         pruned_model.save_pretrained(f"models/gpt2-glue_{sparsity}")
 
 if __name__ == "__main__":
-    # save_pruned_models()
+    save_pruned_models()
     save_pruned_models_glue()
