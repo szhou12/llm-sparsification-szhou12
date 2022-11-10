@@ -47,7 +47,7 @@ def run_benchmark(model_name):
         model = AutoModelForSequenceClassification.from_pretrained(model_checkpoint, num_labels=2)
 
         training_args = TrainingArguments(
-            num_train_epochs = 1,
+            # num_train_epochs = 1,
             output_dir=f'output/glue-{model_name}_{SPARSE_PERCENT[idx]}/',
         )
 
@@ -78,7 +78,7 @@ def run_benchmark_single(model_name, tokenizer_checkpoint, model_checkpoint, SPA
     model = AutoModelForSequenceClassification.from_pretrained(model_checkpoint, num_labels=2)
 
     training_args = TrainingArguments(
-        # num_train_epochs = 1,
+        num_train_epochs = 1,
         output_dir=f'output/glue-{model_name}_{SPARSE_PERCENT}/',
     )
 
