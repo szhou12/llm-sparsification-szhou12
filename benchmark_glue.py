@@ -11,12 +11,12 @@ import json
 # key = model_name
 # value = (tokenizer_name, list of saved models)
 CHECKPOINTS = {
-    'gpt2': ('./models/gpt2-glue-tokenizer/', ["./models/gpt2-glue_0.1/", "./models/gpt2-glue_0.5/", "./models/gpt2-glue_0.9/", "./models/gpt2-glue_0.95/", "./models/gpt2-glue_0.99/", "./models/gpt2-glue/"]),
-    'bart': ('facebook/bart-large', ["./models/bart_0.1/", "./models/bart_0.5/", "./models/bart_0.9/", "./models/bart_0.95/", "./models/bart_0.99/", "facebook/bart-large"]),
-    'roberta': ('roberta-large', ["./models/roberta_0.1/", "./models/roberta_0.5/", "./models/roberta_0.9/", "./models/roberta_0.95/", "./models/roberta_0.99/", "roberta-large"]),
+    'gpt2': ('./models/gpt2-glue-tokenizer/', ["./models/gpt2-glue/", "./models/gpt2-glue_0.1/", "./models/gpt2-glue_0.5/", "./models/gpt2-glue_0.9/", "./models/gpt2-glue_0.95/", "./models/gpt2-glue_0.99/"]),
+    'bart': ('facebook/bart-large', ["facebook/bart-large", "./models/bart_0.1/", "./models/bart_0.5/", "./models/bart_0.9/", "./models/bart_0.95/", "./models/bart_0.99/"]),
+    'roberta': ('roberta-large', ["roberta-large", "./models/roberta_0.1/", "./models/roberta_0.5/", "./models/roberta_0.9/", "./models/roberta_0.95/", "./models/roberta_0.99/"]),
 }
 
-SPARSE_PERCENT = [10, 50, 90, 95, 99, 0]
+SPARSE_PERCENT = [0, 10, 50, 90, 95, 99]
 
 
 def compute_metrics(eval_preds):
