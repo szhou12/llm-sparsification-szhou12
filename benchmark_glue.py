@@ -1,6 +1,7 @@
 import numpy as np
 from transformers import AutoTokenizer, DataCollatorWithPadding
 import datasets
+from datasets import load_metric
 from transformers import AutoModelForSequenceClassification
 from transformers import Trainer, TrainingArguments
 import sys
@@ -15,12 +16,18 @@ CHECKPOINTS = {
     'roberta': ('roberta-large', ["./models/roberta_0.1/", "./models/roberta_0.5/", "./models/roberta_0.9/", "./models/roberta_0.95/", "./models/roberta_0.99/", "roberta-large"]),
 }
 
-SPARSE_PERCENT = [1, 5, 90, 95, 99, 0]
+SPARSE_PERCENT = [10, 50, 90, 95, 99, 0]
 
-def save2Json(train_metrics, test_metrics, filename):
-    results = train_metrics
-    results.update(test_metrics)
-    json_object = json.dumps(results, indent=4)
+
+def compute_metrics(eval_preds):
+    metric = load_metric("glue", "mrpc")
+    logits, labels = eval_preds.predictions, eval_preds.label_ids
+    predictions = np.argmax(logits, axis=-1)
+    return metric.compute(predictions=predictions, references=labels)
+
+
+def save2Json(metrics, filename):
+    json_object = json.dumps(metrics, indent=4)
     with open(filename, "w") as outfile:
         outfile.write(json_object)
 
@@ -51,12 +58,13 @@ def run_benchmark(model_name):
             eval_dataset=tokenized_datasets["validation"],
             data_collator=data_collator, 
             tokenizer=tokenizer,
+            # compute_metrics=compute_metrics
         )
         print(f"Start training {model_checkpoint}...")
 
         trains = trainer.train()
-        predictions = trainer.predict(tokenized_datasets['validation'])
-        save2Json(trains.metrics, predictions.metrics, filename=f'output/glue-{model_name}_{SPARSE_PERCENT[idx]}.json')
+        # predictions = trainer.predict(tokenized_datasets['validation'])
+        save2Json(trains.metrics, filename=f'output/glue-{model_name}_{SPARSE_PERCENT[idx]}.json')
 
 
 if __name__ == "__main__":
