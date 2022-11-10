@@ -113,7 +113,7 @@ if __name__ == "__main__":
     # )
 
 
-    # run_benchmark(model_name)
+    run_benchmark(model_name)
 
 
 
