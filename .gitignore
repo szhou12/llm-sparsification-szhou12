@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 ## SELF-ADD
+.DS_Store
 models/
 pytorch/

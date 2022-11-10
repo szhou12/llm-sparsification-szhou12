@@ -64,7 +64,8 @@ def save_pruned_models_glue():
     tokenizer.save_pretrained(f"models/gpt2-glue-tokenizer")
 
     # Add padding to gpt2 in order to do GLUE task
-    gpt2_glue = GPT2ForSequenceClassification.from_pretrained("gpt2", num_labels=3)
+    # num_labels=2 bc GLUE-mrpc is a binary classification dataset
+    gpt2_glue = GPT2ForSequenceClassification.from_pretrained("gpt2", num_labels=2)
     gpt2_glue.config.pad_token_id = tokenizer.pad_token_id
     # Save gpt2 model with padding
     gpt2_glue.save_pretrained("models/gpt2-glue")
@@ -75,5 +76,5 @@ def save_pruned_models_glue():
         pruned_model.save_pretrained(f"models/gpt2-glue_{sparsity}")
 
 if __name__ == "__main__":
-    save_pruned_models()
+    # save_pruned_models()
     save_pruned_models_glue()
