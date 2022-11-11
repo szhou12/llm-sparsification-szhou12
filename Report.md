@@ -27,7 +27,7 @@ This pattern is reflected on each layer's sparsity structure while we observed a
 
 #### GPT-2
 
-The weights of RoBERTa is normally distributed. Overall, around 58% of weights are less than 0.1, with about 7% of weights less than 0.01. The rest 42% of weghts are greater than 0.1.
+The weights of GPT-2 is normally distributed. Overall, around 58% of weights are less than 0.1, with about 7% of weights less than 0.01. The rest 42% of weghts are greater than 0.1.
 
 This pattern is reflected on each layer's sparsity structure while we observed a trend that as layer proceeds, the percentage of weights greater than 0.1 increases while the percentage of weights between 0.01 and 0.1 decreases.
 
@@ -36,3 +36,20 @@ This pattern is reflected on each layer's sparsity structure while we observed a
 ![gpt2 weights distribution log scale](plots/gpt2_weights_dist_log.png)
 
 ![gpt2 weights distribution by layer](plots/gpt2_weights_by_layers.png)
+
+#### BART
+
+The weights of BART is normally distributed. Overall, around 90% of weights are less than 0.1, with about 17% of weights less than 0.01. The rest 10% of weghts are greater than 0.1.
+
+This pattern is reflected on each encoder layer's sparsity structure while we observed a trend that as layer proceeds, the percentage of weights greater than 0.1 decreases while the percentage of weights less than 0.01 increases. The distribution of weights per decoder layer is relatively stable. That is, the percentage of weights on each threshold doesn't change much across decoder layers.
+
+![bart weights distribution normal scale](plots/bart_weights_dist_normal.png)
+
+![bart weights distribution log scale](plots/bart_weights_dist_log.png)
+
+![bart weights distribution by encoder layer](plots/bart-encoder_weights_by_layers.png)
+
+![bart weights distribution by decoder layer](plots/bart-decoder_weights_by_layers.png)
+
+
+
