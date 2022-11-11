@@ -13,3 +13,9 @@ python benchmark_glue.py gpt2 ./models/gpt2-glue-tokenizer/ ./models/gpt2-glue_0
 python benchmark_glue.py gpt2 ./models/gpt2-glue-tokenizer/ ./models/gpt2-glue_0.95/ 95
 python benchmark_glue.py gpt2 ./models/gpt2-glue-tokenizer/ ./models/gpt2-glue_0.99/ 99
 python benchmark_glue.py gpt2 ./models/gpt2-glue-tokenizer/ ./models/gpt2-glue/ 0
+
+
+
+python benchmark_clm.py gpt2
+python benchmark_clm.py bart
+python benchmark_clm.py roberta
