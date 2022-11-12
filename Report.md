@@ -60,6 +60,8 @@ The selected models are sparsified based on required levels: [10%, 50%, 90%, 95%
 
 ## Benchmarks
 
+`performance.ipynb` provides code resource for the performance analysis.
+
 ### GLUE
 The first benchmark performed is [GLUE, the General Language Understanding Evaluation](https://huggingface.co/datasets/glue), on MRPC (The Microsoft Research Paraphrase Corpus). This task aims to test a model's ability to correctly classify a sentence pair if they have the same meaning. 
 
