@@ -60,6 +60,22 @@ The selected models are sparsified based on required levels: [10%, 50%, 90%, 95%
 
 ## Benchmarks
 
+### GLUE
+The first benchmark performed is [GLUE, the General Language Understanding Evaluation](https://huggingface.co/datasets/glue), on MRPC (The Microsoft Research Paraphrase Corpus). This task aims to test a model's ability to correctly classify a sentence pair if they have the same meaning. 
+
+![GLUE roberta](plots/glue-roberta_loss.png)
+
+For RoBERTa, the loss increases as the model sparsity goes up to 50%. After that, the loss decreases as the model sparsity continues going up.
+
+![GLUE gpt2](plots/glue-gpt2_loss.png)
+
+For GPT2, the loss increases in general as the model sparsity goes up. However, the growth speed of loss slows down as the model sparsity goes over 50%.
+
+![GLUE bart](plots/glue-bart_loss.png)
+
+For BART, the loss increases as the model sparsity goes up to 50%. After that, the loss becomes stable as the model sparsity continues going up.
+
+
 ## Model Size and Runtime
 
 ## Challenges of Sparsification
