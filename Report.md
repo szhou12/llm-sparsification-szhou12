@@ -76,6 +76,23 @@ For GPT2, the loss increases in general as the model sparsity goes up. However, 
 For BART, the loss increases as the model sparsity goes up to 50%. After that, the loss becomes stable as the model sparsity continues going up.
 
 
+### CLM
+The second benchmark performed is [CLM, Casual Language Modeling](https://huggingface.co/datasets/wikitext), on Wikitext. This task aims to test a model's ability to generate the next word based on the given corpus.
+
+![CLM roberta](plots/clm-roberta_loss.png)
+
+For RoBERTa, the loss generally fluctuates. The loss appears to be the lowest when the model is 90% sparse. The loss at 10% sparsity level is lower than the baseline loss (without sparsification).  
+
+![CLM gpt2](plots/clm-gpt2_loss.png)
+
+For GPT2, the loss increases in general as the model sparsity goes up while there is decrease in loss observered when sparsity level goes from 0% to 10% and from 95% to 99%.
+
+![CLM bart](plots/clm-bart_loss.png)
+
+For BART, the loss generally fluctuates. The loss reaches the lowest when the model is 99% sparse. The loss is also low when the model is 50% sparse.
+
+**Analysis**: From both benchmark tests, we can relatively easily generalize GPT-2's performance while some bizarre behaviours are observed in other two models. I think this is due to the difference of sparsity structure between GPT-2 and other two models. Since GPT-2 has roughly 50% of weights that are greater than 0.1 while only 10% of weights in other two models are greater than 0.1. This may imply that GPT-2 is more likely to be affected by the sparsification than RoBERTa and BART. 
+
 ## Model Size and Runtime
 
 ## Challenges of Sparsification
