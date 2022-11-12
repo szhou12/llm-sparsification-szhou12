@@ -126,3 +126,7 @@ For BART, the loss generally fluctuates. The loss reaches the lowest when the mo
 
 
 ## Challenges of Sparsification
+
+Based on the analysis from previous sections, we can see that GPT-2, compared to RoBERTa and BART, is more likely to behave as expected after sparsification. This is likely due to the fact that GPT-2 has more weights whose value is greater than 0.1 in its structure. than other two models. RoBERTa and BART, on the other hand, both have 90% of weights less than 0.1 in their structures. In this experiment, a model with more "small weights" appears to be more vulnerable to sparsification. That is, this model tends to behave unexpectly and stochastically and hard to conclude that sparsification does good to this model. This may imply that these large amount of "small weights", part of or all, that we wish to sparsify out may serve to model that we don't completely understand. Therefore, it's chanllanging to identify who the weights are that we can safely remove without affecting the performance of the model.
+
+Secondly, in this experiment, model runtime is only saved by a small amount and model size is not saved at all through sparsification. Therefore, the support for sparsification on hardware level is also challenging as it may lead to the re-design of state-of-the-art hardwares used to train models. This is costly in both time and capital manners.
