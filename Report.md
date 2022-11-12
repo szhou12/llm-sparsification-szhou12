@@ -93,6 +93,24 @@ For BART, the loss generally fluctuates. The loss reaches the lowest when the mo
 
 **Analysis**: From both benchmark tests, we can relatively easily generalize GPT-2's performance while some bizarre behaviours are observed in other two models. I think this is due to the difference of sparsity structure between GPT-2 and other two models. Since GPT-2 has roughly 50% of weights that are greater than 0.1 while only 10% of weights in other two models are greater than 0.1. This may imply that GPT-2 is more likely to be affected by the sparsification than RoBERTa and BART. 
 
-## Model Size and Runtime
+## Runtime & Model Size
+
+### Runtime on GLUE
+
+![GLUE runtime roberta](plots/glue-roberta_runtime.png)
+
+![GLUE runtime gpt2](plots/glue-gpt2_runtime.png)
+
+![GLUE runtime bart](plots/glue-bart_runtime.png)
+
+
+### Runtime on CLM
+
+![CLM runtime roberta](plots/clm-roberta_runtime.png)
+
+![CLM runtime gpt2](plots/clm-gpt2_runtime.png)
+
+![CLM runtime bart](plots/clm-bart_runtime.png)
+
 
 ## Challenges of Sparsification
