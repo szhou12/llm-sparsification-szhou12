@@ -95,6 +95,10 @@ For BART, the loss generally fluctuates. The loss reaches the lowest when the mo
 
 ## Runtime & Model Size
 
+**Runtime**: All models on both benchmarks appear to require less runtime as the model is sparsified at some level. However, we also notice that the difference in runtime between the original model and any sparsified model goes over 10 seconds. This implies that on a larger scale, sparsification doesn't save much time. One reason could be that the global pruning method provided by Pytorch is not acutally getting rid of selected weights rather than masking them to 0. Thus, the time complexity for matrix operations remains the same.
+
+**Model Size**: As mentioned above, the global pruning isn't removing selected weights rather than masking them to 0. Therefore, the model size between the original model and any sparsified model remains the same.
+
 ### Runtime on GLUE
 
 ![GLUE runtime roberta](plots/glue-roberta_runtime.png)
