@@ -145,16 +145,16 @@ def run_benchmark_single(model_name, tokenizer_checkpoint, model_checkpoint, SPA
 if __name__ == "__main__":
     model_name = sys.argv[1].strip()
 
-    # tokenizer_checkpoint = sys.argv[2].strip()
-    # model_checkpoint = sys.argv[3].strip()
-    # SPARSE_PERCENT = sys.argv[4].strip()
+    tokenizer_checkpoint = sys.argv[2].strip()
+    model_checkpoint = sys.argv[3].strip()
+    SPARSE_PERCENT = sys.argv[4].strip()
 
-    # run_benchmark_single(
-    #     model_name, 
-    #     tokenizer_checkpoint, 
-    #     model_checkpoint, 
-    #     SPARSE_PERCENT
-    # )
+    run_benchmark_single(
+        model_name, 
+        tokenizer_checkpoint, 
+        model_checkpoint, 
+        SPARSE_PERCENT
+    )
 
 
-    run_benchmark(model_name)
+    # run_benchmark(model_name)

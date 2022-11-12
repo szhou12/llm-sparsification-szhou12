@@ -58,3 +58,8 @@ This pattern is reflected on each encoder layer's sparsity structure while we ob
 
 The selected models are sparsified based on required levels: [10%, 50%, 90%, 95%, 99%]. The [unstructured global pruning](https://pytorch.org/docs/stable/generated/torch.nn.utils.prune.global_unstructured.html) method is applied for the sparsification. As we observed that the selected 3 models follow similar pattern of weights distribution per layer, global pruning method should be proper in this setting.
 
+## Benchmarks
+
+## Model Size and Runtime
+
+## Challenges of Sparsification
