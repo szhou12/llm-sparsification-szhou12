@@ -112,5 +112,13 @@ For BART, the loss generally fluctuates. The loss reaches the lowest when the mo
 
 ![CLM runtime bart](plots/clm-bart_runtime.png)
 
+### Model Size
+
+![roberta size](plots/roberta_size.png)
+
+![gpt2 size](plots/gpt2_size.png)
+
+![bart size](plots/bart_size.png)
+
 
 ## Challenges of Sparsification
